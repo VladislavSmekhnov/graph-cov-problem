@@ -45,7 +45,7 @@ public class ExplicitAlgorithm {
             var sl = subsets.size();
             for (var i = 0; i < sl; i++) {
                 var ssl = subsets.get(i).size();
-                List<Integer> ss = subsets.get(i).subList(0, ssl);
+                List<Integer> ss = new ArrayList<>(subsets.get(i).subList(0, ssl));
                 ss.add(v);
                 subsets.add(ss);
             }

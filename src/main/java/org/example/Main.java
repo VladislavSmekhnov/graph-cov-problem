@@ -5,26 +5,31 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        // Example graph represented as an adjacency matrix
-        int[][] graph = {
-                {0, 1, 1, 0, 0},
-                {1, 0, 1, 1, 1},
-                {1, 1, 0, 1, 0},
-                {0, 1, 1, 0, 1},
-                {0, 1, 0, 1, 0}
-        };
+        // // Example graph represented as an adjacency matrix
+        // int[][] graph = {
+        //         {0, 1, 1, 0, 0},
+        //         {1, 0, 1, 1, 1},
+        //         {1, 1, 0, 1, 0},
+        //         {0, 1, 1, 0, 1},
+        //         {0, 1, 0, 1, 0}
+        // };
 
-        int vertexCount = graph.length;
+        // int vertexCount = graph.length;
 
-        // Solve the Vertex Cover problem with k = 2
-        int k = 2;
-        Set<Integer> vertexCover = findVertexCover(graph, k);
+        // // Solve the Vertex Cover problem with k = 2
+        // int k = 2;
+        // Set<Integer> vertexCover = findVertexCover(graph, k);
 
-        if (vertexCover.isEmpty()) {
-            System.out.println("No vertex cover of size " + k + " found.");
-        } else {
-            System.out.println("Vertex cover of size " + k + ": " + vertexCover);
-        }
+        // if (vertexCover.isEmpty()) {
+        //     System.out.println("No vertex cover of size " + k + " found.");
+        // } else {
+        //     System.out.println("Vertex cover of size " + k + ": " + vertexCover);
+        // }
+        var graphReader = new GraphReader("src/main/java/org/example/data/1.mis");
+        var graph = graphReader.read();
+        var explicitAlgorithm = new ExplicitAlgorithm(graph);
+        var res = explicitAlgorithm.checkSubsets();
+        System.out.println(res);
     }
 
     private static Set<Integer> findVertexCover(int[][] graph, int k) {
